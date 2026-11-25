@@ -10,6 +10,15 @@ export type Project = {
   repositories?: { label: string; url: string }[];
 };
 
+export type SkillGroup = {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  icon: string;
+  subgroups: { title: string; items: string[] }[];
+};
+
 export const navigation = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -162,135 +171,190 @@ export const projects: Project[] = [
     ],
     video: "/demos/speech-classification.mp4",
   },
-  {
-    id: "yelp-sentiment-analysis",
-    title: "Yelp Reviews Sentiment Analysis",
-    category: "NLP · Machine learning",
-    description:
-      "An end-to-end sentiment analysis pipeline for customer feedback, combining FastText word embeddings with Logistic Regression, text vectorization, and hyperparameter optimization.",
-    technologies: [
-      "FastText",
-      "NLP preprocessing",
-      "Text vectorization",
-      "Scikit-learn",
-      "Hyperparameter tuning",
-    ],
-  },
 ];
 
-export const skillGroups = [
+export const skillGroups: SkillGroup[] = [
   {
-    id: "programming",
-    title: "Programming Languages",
-    category: "Engineering",
-    icon: "code",
-    items: [
-      "Python",
-      "SQL",
-      "C++",
-      "Git & GitHub",
-      "VS Code & Jupyter",
+    id: "ai-engineering",
+    title: "AI Engineering",
+    category: "AI Engineering",
+    description:
+      "Connect AI capabilities with backend services to build practical applications.",
+    icon: "server",
+    subgroups: [
+      {
+        title: "Languages & Tools",
+        items: ["Python", "Git & GitHub", "Docker", "Docker Compose"],
+      },
+      {
+        title: "Application Development",
+        items: [
+          "FastAPI",
+          "REST APIs",
+          "Streamlit",
+          "AI application development",
+          "Celery & Redis",
+        ],
+      },
+    ],
+  },
+  {
+    id: "generative-ai",
+    title: "Generative AI, LLMs & RAG",
+    category: "Generative AI, LLMs & RAG",
+    description:
+      "Build language-model and retrieval workflows with LLM and RAG techniques.",
+    icon: "sparkles",
+    subgroups: [
+      {
+        title: "Large Language Models",
+        items: ["LLM applications", "Prompt engineering", "LLM integration"],
+      },
+      {
+        title: "Retrieval-Augmented Generation",
+        items: [
+          "RAG systems",
+          "Embeddings",
+          "Vector search",
+          "Retrieval pipelines",
+        ],
+      },
+      {
+        title: "Frameworks & Evaluation",
+        items: [
+          "LangChain",
+          "ChromaDB",
+          "FAISS",
+          "Hugging Face",
+          "LLM evaluation",
+          "LLM-as-a-Judge",
+        ],
+      },
+    ],
+  },
+  {
+    id: "nlp",
+    title: "Natural Language Processing (NLP)",
+    category: "Natural Language Processing (NLP)",
+    description:
+      "Work with text processing, representations, and language analytics.",
+    icon: "brain",
+    subgroups: [
+      {
+        title: "Text Processing",
+        items: ["Arabic NLP", "NLP preprocessing"],
+      },
+      {
+        title: "Text Representation & Embeddings",
+        items: ["TF-IDF", "FastText"],
+      },
+      {
+        title: "Text Analysis",
+        items: ["Sentiment analysis"],
+      },
     ],
   },
   {
     id: "machine-learning",
     title: "Machine Learning",
     category: "Machine Learning",
+    description:
+      "Develop and evaluate models for prediction, classification, and forecasting.",
     icon: "cpu",
-    items: [
-      "Scikit-learn",
-      "XGBoost & CatBoost",
-      "Time-series forecasting",
-      "Ensemble learning",
-      "SMOTE",
-      "Model evaluation",
-    ],
-  },
-  {
-    id: "deep-learning",
-    title: "Deep Learning & Computer Vision",
-    category: "Deep Learning",
-    icon: "brain",
-    items: [
-      "PyTorch",
-      "TensorFlow / Keras",
-      "CNNs & neural nets",
-      "Computer vision / OpenCV",
-      "ResNet50 / VGG16",
-      "Transfer learning",
-      "Audio AI / Librosa",
-      "NLP / FastText",
-    ],
-  },
-  {
-    id: "generative-ai",
-    title: "Generative AI & LLMs",
-    category: "Generative AI",
-    icon: "sparkles",
-    items: [
-      "LangChain",
-      "RAG systems",
-      "ChromaDB",
-      "FAISS",
-      "Llama",
-      "Prompt engineering",
-      "LLM evaluation",
-      "Hugging Face",
+    subgroups: [
+      {
+        title: "Supervised Learning",
+        items: [
+          "Classification & regression",
+          "XGBoost",
+          "CatBoost",
+          "Ensemble learning",
+        ],
+      },
+      {
+        title: "Unsupervised Learning",
+        items: ["BERTopic topic modeling"],
+      },
+      {
+        title: "Model Development & Evaluation",
+        items: [
+          "Feature engineering",
+          "Time-aware cross-validation",
+          "Hyperparameter tuning",
+          "SMOTE & class balancing",
+          "Model evaluation",
+          "Data-leakage prevention",
+          "Time-series forecasting",
+        ],
+      },
     ],
   },
   {
     id: "data-science",
-    title: "Data Science & Analytics",
+    title: "Data Science",
     category: "Data Science",
+    description:
+      "Explore, prepare, visualize, and communicate insights from data.",
     icon: "chart",
-    items: [
-      "Pandas",
-      "NumPy",
-      "Exploratory analysis",
-      "Statistical analysis",
-      "Feature engineering",
-      "Power BI",
-      "Matplotlib & Seaborn",
-      "Plotly",
+    subgroups: [
+      {
+        title: "Data Analysis & Exploration",
+        items: [
+          "Exploratory data analysis (EDA)",
+          "Statistical analysis",
+          "Pattern & trend analysis",
+        ],
+      },
+      {
+        title: "Data Cleaning & Preparation",
+        items: ["Data cleaning", "Data preprocessing"],
+      },
+      {
+        title: "Visualization & Libraries",
+        items: [
+          "Pandas",
+          "NumPy",
+          "Matplotlib",
+          "Seaborn",
+          "Plotly",
+          "Power BI",
+          "Data visualization",
+          "Data reporting & insights",
+        ],
+      },
+      {
+        title: "Analysis Workflow",
+        items: [
+          "Dataset exploration",
+          "Data-driven insights",
+          "Preparing data for machine learning",
+        ],
+      },
     ],
   },
   {
-    id: "backend",
-    title: "Backend Development",
-    category: "Engineering",
-    icon: "server",
-    items: [
-      "FastAPI",
-      "REST APIs & Pydantic",
-      "Streamlit",
-      "Celery & Redis",
-      "JWT authentication",
-      "SQLAlchemy & Alembic",
-    ],
-  },
-  {
-    id: "mlops",
-    title: "MLOps & Deployment",
-    category: "Engineering",
-    icon: "workflow",
-    items: [
-      "Docker",
-      "Docker Compose",
-      "ONNX",
-      "MLflow",
-      "Deployment workflows",
-    ],
-  },
-  {
-    id: "databases-tools",
-    title: "Databases & Tools",
-    category: "Engineering",
-    icon: "database",
-    items: [
-      "Relational databases",
-      "SQLite",
-      "Git & GitHub",
-      "VS Code & Jupyter",
+    id: "deep-learning",
+    title: "Deep Learning",
+    category: "Deep Learning",
+    description:
+      "Train and evaluate neural models with established deep-learning frameworks.",
+    icon: "brain",
+    subgroups: [
+      {
+        title: "Architectures & Techniques",
+        items: [
+          "CNNs",
+          "RNNs",
+          "Transfer learning",
+          "Fine-tuning",
+          "Data augmentation",
+          "Model training & evaluation",
+        ],
+      },
+      {
+        title: "Frameworks",
+        items: ["PyTorch", "TensorFlow", "Keras"],
+      },
     ],
   },
 ];
@@ -298,63 +362,70 @@ export const skillGroups = [
 export const domains = [
   {
     number: "01",
-    title: "Machine Learning & Analytics",
+    title: "AI Engineering",
     description:
-      "Predictive models, time-series forecasting, imbalance correction, and feature engineering.",
-    tools: "XGBoost · Scikit-learn · Time-aware CV",
+      "Connect AI workflows with data handling and backend services to build practical applications.",
+    tools: "Python · FastAPI · Docker",
   },
   {
     number: "02",
-    title: "Deep Learning & Computer Vision",
+    title: "Generative AI, LLMs & RAG",
     description:
-      "Multi-class classification, CNN architectures, transfer learning, and image preprocessing.",
-    tools: "PyTorch · TensorFlow · OpenCV",
+      "Explore language-model applications, retrieval pipelines, vector search, and grounded responses.",
+    tools: "LLMs · LangChain · ChromaDB · FAISS",
   },
   {
     number: "03",
-    title: "Generative AI & RAG",
+    title: "Natural Language Processing (NLP)",
     description:
-      "Domain-specific retrieval systems, vector search, prompt design, and grounded evaluation.",
-    tools: "Llama · LangChain · Groq · RAG",
+      "Work with Arabic text, sentiment analysis, text features, and topic modeling.",
+    tools: "Arabic NLP · FastText · BERTopic · TF-IDF",
   },
   {
     number: "04",
-    title: "Audio & NLP Systems",
+    title: "Machine Learning & Data Science",
     description:
-      "Acoustic signal processing, speech classification, sentiment analysis, and Arabic text workflows.",
-    tools: "Librosa · FastText · Azure OCR · Pydub",
+      "Analyze data, engineer features, and build predictive and time-series models.",
+    tools: "Scikit-learn · XGBoost · Pandas · NumPy",
+  },
+  {
+    number: "05",
+    title: "Deep Learning",
+    description:
+      "Train and evaluate neural-network models using established deep-learning frameworks.",
+    tools: "PyTorch · TensorFlow / Keras · CNNs",
   },
 ];
 
 export const capabilities = [
   {
-    title: "End-to-end ML & deep learning",
+    title: "AI Engineering",
     description:
-      "Design, train, and validate classification, regression, and deep neural models with careful tuning and data-leakage prevention.",
+      "Connect AI workflows with data handling, backend APIs, and software engineering to shape practical applications.",
     icon: "↗",
   },
   {
-    title: "Custom GenAI & RAG systems",
+    title: "Generative AI, LLMs & RAG",
     description:
-      "Build retrieval-augmented pipelines with LangChain and vector stores, with evaluation focused on grounded responses.",
+      "Develop retrieval-augmented workflows with language models and vector stores, focusing on grounded responses.",
     icon: "⌘",
   },
   {
-    title: "Computer vision & audio AI",
+    title: "Natural Language Processing (NLP)",
     description:
-      "Develop image and acoustic pipelines for multi-class recognition, transfer learning, and audio feature extraction.",
+      "Apply text processing, topic modeling, and sentiment analysis to language data.",
     icon: "◈",
   },
   {
-    title: "Data science & business intelligence",
+    title: "Machine Learning & Data Science",
     description:
-      "Explore datasets, engineer useful features, model patterns, and communicate findings with interactive dashboards.",
+      "Explore datasets, engineer features, train predictive models, and communicate findings through analytics.",
     icon: "⌁",
   },
   {
-    title: "Production MLOps & deployment",
+    title: "Deep Learning",
     description:
-      "Package models with Docker, expose APIs with FastAPI, accelerate inference with ONNX, and track experiments with MLflow.",
+      "Build and evaluate neural-network models with deep-learning frameworks.",
     icon: "⟡",
   },
 ];
@@ -383,9 +454,9 @@ export const pipeline = [
   },
   {
     number: "04",
-    title: "MLOps & deployment",
+    title: "Application integration",
     description:
-      "Package services, expose APIs, accelerate inference, and orchestrate asynchronous workflows.",
+      "Connect model workflows to APIs and application services, using packaging and asynchronous workflows where appropriate.",
     tools: "Deliver",
   },
 ];
@@ -520,12 +591,12 @@ export const faqs = [
   {
     question: "What are your primary areas of technical specialization?",
     answer:
-      "I work across machine learning and deep learning, generative AI and RAG, and data science analytics, supported by production tools such as Docker, FastAPI, ONNX, and Streamlit.",
+      "My priorities are AI Engineering; Generative AI, LLMs, and RAG; Natural Language Processing; Machine Learning and Data Science; and Deep Learning.",
   },
   {
-    question: "Can you take an AI model from research to containerized production?",
+    question: "How do you approach building practical AI applications?",
     answer:
-      "Yes. My work can span data ingestion and exploration, training and tuning, API development with FastAPI, Docker packaging, and asynchronous workflows with Celery and Redis.",
+      "I combine data and model workflows with application components such as FastAPI, Docker, and asynchronous services when they fit the project.",
   },
   {
     question: "How do you address hallucinations in LLM and RAG pipelines?",
@@ -535,7 +606,7 @@ export const faqs = [
   {
     question: "What is your academic background?",
     answer:
-      "I am studying for a Bachelor of Artificial Intelligence at the Faculty of Computers and Artificial Intelligence, Cairo University. The reference portfolio lists a GPA of 3.3/4.0.",
+      "I graduated in 2026 from the Faculty of Computers and Artificial Intelligence at Cairo University, Department of Artificial Intelligence.",
   },
   {
     question: "How can we discuss roles or project collaborations?",
@@ -546,12 +617,14 @@ export const faqs = [
 
 export const profile = {
   fullName: "Aya Ali",
-  title: "AI / ML Engineer",
-  headline: "Turning Data into Intelligent Solutions",
+  title: "AI Engineer",
+  headline:
+    "Building intelligent AI systems that turn complex problems into practical solutions.",
+  photo: "/images/aya-profile.png",
   email: "ayaali66092@gmail.com",
   github: "https://github.com/aya968",
   linkedin: "https://www.linkedin.com/in/aya-ali-924932373/",
   kaggle: "https://www.kaggle.com/ayaali66",
   resume:
-    "https://portfolify-one-lac.vercel.app/assets/Aya_Ali_Hassan_AI_Engineer.pdf",
+    "https://drive.google.com/uc?export=download&id=1oEEU7EmaYYxEHuOwA0VqtMTC7urlYf8R",
 };

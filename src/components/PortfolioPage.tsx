@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   ArrowDown,
   ArrowRight,
@@ -19,7 +20,6 @@ import {
   MapPin,
   Server,
   Sparkles,
-  UserRound,
   Workflow,
 } from "lucide-react";
 import {
@@ -48,11 +48,12 @@ import {
 
 const skillFilters = [
   "All",
-  "Data Science",
+  "AI Engineering",
+  "Generative AI, LLMs & RAG",
+  "Natural Language Processing (NLP)",
   "Machine Learning",
+  "Data Science",
   "Deep Learning",
-  "Generative AI",
-  "Engineering",
 ];
 
 const skillCategoryIcons = {
@@ -75,11 +76,13 @@ const skillBrandIcons = {
 function Reveal({
   children,
   className,
+  id,
   delay = 0,
   lift = false,
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
   delay?: number;
   lift?: boolean;
 }) {
@@ -87,6 +90,7 @@ function Reveal({
   return (
     <motion.div
       className={className}
+      id={id}
       initial={reduceMotion ? false : { opacity: 0, y: 22 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={
@@ -208,7 +212,7 @@ export default function PortfolioPage() {
               >
                 Aya Ali
                 <span className="hero-title-line text-gradient">
-                  AI / ML Engineer
+                  AI Engineer
                 </span>
               </motion.h1>
               <motion.p
@@ -221,19 +225,29 @@ export default function PortfolioPage() {
                   ease: "easeOut",
                 }}
               >
-                Turning data into intelligent solutions.
+                {profile.headline}
               </motion.p>
               <p className="hero-lead">
-                I build thoughtful machine learning, computer vision, and
-                generative AI systems that move from experiments into useful
-                products.
+                I&apos;m an AI Engineer and a 2026 graduate of the Faculty of
+                Computers and Artificial Intelligence at Cairo University,
+                passionate about building intelligent applications that solve
+                real-world problems. My primary interests lie in AI Engineering,
+                Generative AI, Large Language Models (LLMs),
+                Retrieval-Augmented Generation (RAG), and Natural Language
+                Processing (NLP). I enjoy designing and developing AI-powered
+                systems, from understanding data and building intelligent
+                workflows to integrating language models into practical
+                applications. With a foundation in Machine Learning, Data
+                Science, and Deep Learning, I aim to combine AI techniques with
+                software engineering to create useful, reliable, and
+                well-structured solutions.
               </p>
               <div className="hero-education">
                 <GraduationCap size={17} aria-hidden="true" />
                 <span>
-                  Faculty of Artificial Intelligence
+                  Department of Artificial Intelligence
                   <span className="education-separator"> / </span>
-                  Cairo University
+                  Cairo University · Graduated 2026
                 </span>
               </div>
               <motion.div
@@ -309,64 +323,18 @@ export default function PortfolioPage() {
                 ease: "easeOut",
               }}
             >
-              <motion.div
-                className="visual-orbit orbit-outer"
-                animate={reduceMotion ? undefined : { rotate: 360 }}
-                transition={{
-                  duration: 54,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
-              <motion.div
-                className="visual-orbit orbit-inner"
-                animate={reduceMotion ? undefined : { rotate: -360 }}
-                transition={{
-                  duration: 42,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
-              <div className="visual-core">
-                <div className="portrait-glow" />
-                <div className="portrait-placeholder">
-                  <UserRound size={62} strokeWidth={1.15} aria-hidden="true" />
+              <div className="portrait-frame">
+                <div className="portrait-image-clip">
+                  <Image
+                    alt="Aya Ali"
+                    className="portrait-image"
+                    fill
+                    sizes="(max-width: 760px) 300px, 380px"
+                    src={profile.photo}
+                    unoptimized
+                  />
                 </div>
-                <span className="core-caption">YOUR PROFILE PHOTO</span>
               </div>
-              <div className="orbit-node node-python">
-                <span className="node-dot" /> Python
-              </div>
-              <div className="orbit-node node-ml">
-                <span className="node-dot" /> Machine learning
-              </div>
-              <div className="orbit-node node-genai">
-                <span className="node-dot" /> GenAI
-              </div>
-              <motion.div
-                className="visual-float-card"
-                animate={reduceMotion ? undefined : { y: [0, -7, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <span className="float-icon">
-                  <Sparkles size={16} aria-hidden="true" />
-                </span>
-                <span>
-                  <strong>From data</strong>
-                  <small>to decisions</small>
-                </span>
-                <span className="float-spark">↗</span>
-              </motion.div>
-              <span className="visual-coordinate coordinate-top">
-                30°01&apos; N
-              </span>
-              <span className="visual-coordinate coordinate-bottom">
-                31°14&apos; E
-              </span>
             </motion.div>
             <a className="scroll-cue" href="#about">
               <span>Scroll to explore</span>
@@ -386,28 +354,31 @@ export default function PortfolioPage() {
             </Reveal>
             <Reveal className="about-copy" delay={0.1}>
               <p>
-                I&apos;m an AI Engineer and Data Science specialist studying at
-                the Faculty of Computers and Artificial Intelligence, Cairo
-                University. My work spans machine learning, deep learning,
-                computer vision, NLP, and generative AI.
+                I&apos;m an AI Engineer and a 2026 graduate of the Faculty of
+                Computers and Artificial Intelligence at Cairo University,
+                Department of Artificial Intelligence. My primary interests
+                are AI Engineering, Generative AI, LLMs, RAG, and NLP.
               </p>
               <p>
-                Alongside model development, I focus on the engineering details
-                that make a system dependable: careful evaluation, clear APIs,
-                containerized deployment, and maintainable workflows.
+                With a foundation in Machine Learning, Data Science, and Deep
+                Learning, I enjoy combining AI techniques with software
+                engineering to create useful, reliable, and well-structured
+                applications.
               </p>
               <div className="about-facts">
                 <div>
-                  <span className="fact-value">3.3 / 4.0</span>
-                  <span className="fact-label">GPA · Cairo University</span>
+                  <span className="fact-value">2026</span>
+                  <span className="fact-label">Graduation year</span>
                 </div>
                 <div>
-                  <span className="fact-value">Class of 2026</span>
-                  <span className="fact-label">Faculty of AI</span>
+                  <span className="fact-value">Artificial Intelligence</span>
+                  <span className="fact-label">Department</span>
                 </div>
                 <div>
-                  <span className="fact-value">End to end</span>
-                  <span className="fact-label">Research to deployment</span>
+                  <span className="fact-value">Cairo University</span>
+                  <span className="fact-label">
+                    Faculty of Computers and Artificial Intelligence
+                  </span>
                 </div>
               </div>
             </Reveal>
@@ -419,12 +390,13 @@ export default function PortfolioPage() {
             <SectionHeading
               eyebrow="Selected work"
               title="Projects built around real problems."
-              description="A selection of machine learning, computer vision, audio, NLP, and RAG work. Demo videos can be added to the local demos folder at any time."
+              description="A selection of AI engineering, generative AI, NLP, machine learning, and deep learning projects. Demo videos can be added to the local demos folder at any time."
             />
           </Reveal>
           <div className="projects-grid">
             {projects.map((project, index) => (
               <Reveal
+                id={`project-${project.id}`}
                 className={`project-card${index === 0 ? " project-featured" : ""}`}
                 key={project.id}
                 delay={index % 2 === 0 ? 0 : 0.07}
@@ -542,36 +514,54 @@ export default function PortfolioPage() {
                   ];
                 return (
                   <Reveal
-                    className="skill-card"
+                    className={`skill-card${index === 0 && activeSkillFilter === "All" ? " skill-card-primary" : ""}${index === 1 && activeSkillFilter === "All" ? " skill-card-secondary" : ""}`}
                     key={group.id}
                     delay={index * 0.06}
-                    lift
                   >
                     <div className="skill-card-heading">
                       <span className="skill-category-icon">
                         <CategoryIcon size={18} strokeWidth={1.8} aria-hidden="true" />
                       </span>
-                      <span className="skill-category-label">{group.category}</span>
+                      <div className="skill-card-heading-copy">
+                        <span className="skill-category-label">
+                          {index === 0 && activeSkillFilter === "All"
+                            ? "Primary focus"
+                            : "Area of expertise"}
+                        </span>
+                        <h3>{group.title}</h3>
+                      </div>
                       <span className="skill-card-line" />
                     </div>
-                    <h3>{group.title}</h3>
-                    <div className="skill-list">
-                      {group.items.map((skill) => {
-                        const brandIcon =
-                          skillBrandIcons[skill as keyof typeof skillBrandIcons];
-                        return (
-                          <span className="skill-pill" key={skill}>
-                            <span className="skill-pill-icon" aria-hidden="true">
-                              {brandIcon ? (
-                                <FontAwesomeIcon icon={brandIcon} />
-                              ) : (
-                                skill.slice(0, 2).toUpperCase()
-                              )}
-                            </span>
-                            {skill}
-                          </span>
-                        );
-                      })}
+                    <p className="skill-card-description">{group.description}</p>
+                    <div className="skill-subgroups">
+                      {group.subgroups.map((subgroup) => (
+                        <div className="skill-subgroup" key={subgroup.title}>
+                          <h4>{subgroup.title}</h4>
+                          <div className="skill-list">
+                            {subgroup.items.map((skill) => {
+                              const brandIcon =
+                                skillBrandIcons[
+                                  skill as keyof typeof skillBrandIcons
+                                ];
+                              return (
+                                <span className="skill-pill" key={skill}>
+                                  <span
+                                    className="skill-pill-icon"
+                                    aria-hidden="true"
+                                  >
+                                    {brandIcon ? (
+                                      <FontAwesomeIcon icon={brandIcon} />
+                                    ) : (
+                                      skill.slice(0, 2).toUpperCase()
+                                    )}
+                                  </span>
+                                  {skill}
+                                </span>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </Reveal>
                 );
@@ -666,7 +656,7 @@ export default function PortfolioPage() {
             <SectionHeading
               eyebrow="Experience"
               title="Learning through applied work."
-              description="Training and internship experiences from the source portfolio, presented as provided."
+              description="Internship and training experiences in AI and data science."
             />
           </Reveal>
           <div className="experience-list">
@@ -712,7 +702,7 @@ export default function PortfolioPage() {
             <SectionHeading
               eyebrow="Certifications & training"
               title="A growing foundation in AI and software."
-              description="Credentials and training listed in the reference portfolio. Each link opens its provided verification or certificate page."
+              description="Credentials and training, with links to their provided verification or certificate pages."
             />
           </Reveal>
           <div className="certification-grid">
@@ -860,7 +850,7 @@ export default function PortfolioPage() {
             </span>
           </a>
           <p>
-            Designed & built with care <span>·</span> Aya Ali, AI / ML Engineer
+            Designed & built with care <span>·</span> Aya Ali, AI Engineer
           </p>
           <a className="back-to-top" href="#home">
             Back to top <ArrowUpRight size={14} aria-hidden="true" />

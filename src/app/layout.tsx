@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aya Ali | AI / ML Engineer",
+  title: "Aya Ali | AI Engineer",
   description:
-    "Aya Ali is an AI / ML Engineer building machine learning, computer vision, and generative AI systems.",
+    "Aya Ali is an AI Engineer focused on AI Engineering, Generative AI, LLMs, RAG, and Natural Language Processing.",
   openGraph: {
-    title: "Aya Ali | AI / ML Engineer",
+    title: "Aya Ali | AI Engineer",
     description:
-      "Turning data into intelligent solutions with machine learning, generative AI, and production engineering.",
+      "Building intelligent AI systems that turn complex problems into practical solutions, with a focus on Generative AI, LLMs, RAG, and NLP.",
     type: "website",
   },
 };

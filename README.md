@@ -1,4 +1,4 @@
-# Aya Ali — AI / ML Engineer
+# Aya Ali — AI Engineer
 
 A responsive personal portfolio built with Next.js App Router, TypeScript,
 Tailwind CSS, Framer Motion, and Lucide React.

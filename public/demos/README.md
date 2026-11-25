@@ -9,7 +9,6 @@ on Linux/Vercel and must match the paths in `src/data/portfolio.ts`:
 - `equitylens.mp4`
 - `housing-price-forecasting.mp4`
 - `speech-classification.mp4`
-- `yelp-sentiment-analysis.mp4`
 
 MP4 and WebM files are supported. To use WebM, update that project's `video`
 path in the centralized portfolio data. The video player loads metadata only
