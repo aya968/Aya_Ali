@@ -20,6 +20,10 @@
 # production
 /build
 
+# Demo media can be large; add intentionally if needed for deployment.
+/public/demos/*.mp4
+/public/demos/*.webm
+
 # misc
 .DS_Store
 *.pem

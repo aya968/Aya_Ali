@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aya Ali — AI / ML Engineer
 
-## Getting Started
+A responsive personal portfolio built with Next.js App Router, TypeScript,
+Tailwind CSS, Framer Motion, and Lucide React.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Update portfolio content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Projects, skills, domains, capabilities, education-related facts, experience,
+certifications, FAQ answers, and profile links live in
+[`src/data/portfolio.ts`](src/data/portfolio.ts). Repository links are only
+shown as project repositories when a project-specific URL is available.
 
-## Learn More
+## Add project demo videos
 
-To learn more about Next.js, take a look at the following resources:
+Copy video files into `public/demos/` using the exact names listed in
+[`public/demos/README.md`](public/demos/README.md). Local MP4 and WebM files are
+supported; missing files retain a coming-soon placeholder. Demo files are
+ignored by Git by default to avoid large commits and deployments.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Validate and deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy the project by importing its Git repository into Vercel and using the
+default Next.js build settings. For larger production videos, use external
+video hosting and update the centralized project video sources accordingly.
