@@ -4,6 +4,15 @@ on:
   push:
     branches:
       - main
+    paths:
+      - ".github/workflows/deploy.yml"
+      - "next.config.ts"
+      - "next-env.d.ts"
+      - "package.json"
+      - "package-lock.json"
+      - "src/**"
+      - "public/**"
+      - "tsconfig.json"
   workflow_dispatch:
 
 permissions:
@@ -38,6 +47,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: "true"
+          NEXT_PUBLIC_BASE_PATH: "/Aya_Ali"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
