@@ -34,6 +34,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import SectionHeading from "@/components/SectionHeading";
 import VideoDemo from "@/components/VideoDemo";
+import { publicAssetPath } from "@/lib/public-asset-path";
 import {
   capabilities,
   certifications,
@@ -330,7 +331,7 @@ export default function PortfolioPage() {
                     className="portrait-image"
                     fill
                     sizes="(max-width: 760px) 300px, 380px"
-                    src={profile.photo}
+                    src={publicAssetPath(profile.photo)}
                     unoptimized
                   />
                 </div>
@@ -405,7 +406,11 @@ export default function PortfolioPage() {
                 <div className="project-media">
                   <VideoDemo
                     title={project.title}
-                    src={project.video}
+                    src={
+                      project.video
+                        ? publicAssetPath(project.video)
+                        : undefined
+                    }
                     embedUrl={project.videoEmbed}
                   />
                 </div>
