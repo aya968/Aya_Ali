@@ -32,6 +32,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useReducedMotion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import ParticleNetwork from "@/components/ParticleNetwork";
 import SectionHeading from "@/components/SectionHeading";
 import VideoDemo from "@/components/VideoDemo";
 import { publicAssetPath } from "@/lib/public-asset-path";
@@ -153,35 +154,8 @@ export default function PortfolioPage() {
 
       <main id="main-content">
         <section className="hero-section" id="home">
+          <ParticleNetwork />
           <div className="hero-grid-pattern" aria-hidden="true" />
-          <motion.div
-            className="ambient ambient-blue"
-            aria-hidden="true"
-            animate={
-              reduceMotion
-                ? undefined
-                : { x: [0, 35, 0], y: [0, -22, 0], scale: [1, 1.08, 1] }
-            }
-            transition={{
-              duration: 16,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="ambient ambient-purple"
-            aria-hidden="true"
-            animate={
-              reduceMotion
-                ? undefined
-                : { x: [0, -28, 0], y: [0, 24, 0], scale: [1, 1.12, 1] }
-            }
-            transition={{
-              duration: 19,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
           <div className="content-width hero-content">
             <motion.div
               className="hero-copy"
@@ -202,6 +176,10 @@ export default function PortfolioPage() {
                 CAIRO, EGYPT <span className="intro-divider">·</span> OPEN TO
                 OPPORTUNITIES
               </motion.div>
+              <div className="specialty-badge">
+                <Sparkles size={13} aria-hidden="true" />
+                Generative AI <span>·</span> LLMs <span>·</span> RAG
+              </div>
               <motion.h1
                 initial={reduceMotion ? false : { opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -211,9 +189,9 @@ export default function PortfolioPage() {
                   ease: "easeOut",
                 }}
               >
-                Aya Ali
+                {profile.fullName}
                 <span className="hero-title-line text-gradient">
-                  AI Engineer
+                  {profile.title}
                 </span>
               </motion.h1>
               <motion.p
@@ -229,26 +207,16 @@ export default function PortfolioPage() {
                 {profile.headline}
               </motion.p>
               <p className="hero-lead">
-                I&apos;m an AI Engineer and a 2026 graduate of the Faculty of
-                Computers and Artificial Intelligence at Cairo University,
-                passionate about building intelligent applications that solve
-                real-world problems. My primary interests lie in AI Engineering,
-                Generative AI, Large Language Models (LLMs),
-                Retrieval-Augmented Generation (RAG), and Natural Language
-                Processing (NLP). I enjoy designing and developing AI-powered
-                systems, from understanding data and building intelligent
-                workflows to integrating language models into practical
-                applications. With a foundation in Machine Learning, Data
-                Science, and Deep Learning, I aim to combine AI techniques with
-                software engineering to create useful, reliable, and
-                well-structured solutions.
+                AI Engineer and 2026 Cairo University graduate, focused on
+                Generative AI, LLMs, RAG, and NLP. I turn thoughtful model
+                workflows into practical, reliable applications.
               </p>
               <div className="hero-education">
                 <GraduationCap size={17} aria-hidden="true" />
                 <span>
-                  Department of Artificial Intelligence
+                  Faculty of Computers and Artificial Intelligence
                   <span className="education-separator"> / </span>
-                  Cairo University · Graduated 2026
+                  Cairo University, Department of AI · Graduated 2026
                 </span>
               </div>
               <motion.div
@@ -261,7 +229,7 @@ export default function PortfolioPage() {
                 }}
               >
                 <a className="button button-primary" href="#projects">
-                  Explore projects <ArrowRight size={17} aria-hidden="true" />
+                  View my projects <ArrowRight size={17} aria-hidden="true" />
                 </a>
                 <a
                   className="button button-secondary"
@@ -273,7 +241,7 @@ export default function PortfolioPage() {
                   Download CV
                 </a>
                 <a className="button button-contact" href="#contact">
-                  Contact Aya <ArrowUpRight size={16} aria-hidden="true" />
+                  Contact me <ArrowUpRight size={16} aria-hidden="true" />
                 </a>
               </motion.div>
               <motion.div
@@ -324,6 +292,8 @@ export default function PortfolioPage() {
                 ease: "easeOut",
               }}
             >
+              <div className="portrait-orbit portrait-orbit-one" aria-hidden="true" />
+              <div className="portrait-orbit portrait-orbit-two" aria-hidden="true" />
               <div className="portrait-frame">
                 <div className="portrait-image-clip">
                   <Image
@@ -336,6 +306,8 @@ export default function PortfolioPage() {
                   />
                 </div>
               </div>
+              <span className="portrait-chip portrait-chip-top">AI / ML</span>
+              <span className="portrait-chip portrait-chip-bottom">BUILDING WITH INTENT</span>
             </motion.div>
             <a className="scroll-cue" href="#about">
               <span>Scroll to explore</span>

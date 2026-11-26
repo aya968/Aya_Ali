@@ -619,7 +619,7 @@ export const profile = {
   fullName: "Aya Ali",
   title: "AI Engineer",
   headline:
-    "Building intelligent AI systems that turn complex problems into practical solutions.",
+    "I build intelligent AI systems that solve real-world problems.",
   photo: "/images/aya-profile.png",
   email: "ayaali66092@gmail.com",
   github: "https://github.com/aya968",
